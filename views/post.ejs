@@ -1,0 +1,9 @@
+<%- include('partials/header.ejs') %>
+
+<h1>Post</h1>
+<% if(locals.post){ %>
+<p><%= post.content %></p>
+<% } %>
+
+<a href="/">Torna alla home</a>
+<%- include('partials/footer.ejs') %>

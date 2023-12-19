@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    background-color: rgb(38, 38, 38);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+main {
+    background-color: #fff;
+    width: 500px;
+    min-height: 50vh;
+    margin-top: 30px;
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+h1 {
+    background-color: white;
+    border-radius: 10px;
+    width:fit-content;
+    margin-top: -30px;
+    margin-left: 10px;
+    font-size: 3rem;
+}
+
+#text{
+    width: 80%;
+    height: 50px;
+}
+
+#text:focus {
+    border: red;
+}
+textarea#text {
+    resize: none;
+}
+textarea#text::placeholder {
+    color:grey;
+}
+
+input[type="submit"] {
+    position: absolute;
+    padding: 15px 5px;
+    margin-left: 5px;
+}
+
+.todo {
+    display: flex;
+    flex-direction: column;
+}
+
+.checklist-item {
+    height: 40px;
+    width: 85%;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.checklist-item a {
+    text-decoration: none;
+}
+
+.checklist-item input[type='submit'] {
+    float: right;
+}
+
+input:checked + label {
+    text-decoration: line-through;
+}
+
+#txtcontent {
+    width: 300px;
+    height: 150px;
+    display: block;
+}
+
+.checklist-item:has(> input:checked){ /*for parent*/
+    border-color: gray;
+    color: gray;
+}
+
+.edit, 
+.modify, .delete {
+    border: 1px solid rgb(69, 67, 67);
+    padding: 5px;
+    border-radius: 5px;
+    /* margin-right: 5px; */
+}
+
+/* .edit, .delete {
+    float: right;
+} */

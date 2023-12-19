@@ -1,0 +1,10 @@
+<%- include('partials/header.ejs') %>
+
+<h1>Modify Post</h1>
+<% if(locals.todo) { %>
+<form id="editTodo" action="/posts/<%= todo.id %>" method="post">
+    <textarea name="content" id="txtcontent" rows="5"><%= todo.content %></textarea>
+    <button type="submit" class="modify">Modify</button>
+</form>
+<% } %>
+<%- include('partials/footer.ejs') %>

@@ -1,0 +1,52 @@
+<%- include('partials/header.ejs') %>
+<% 
+function excrept(text) { //Create a short text for post
+    let shortTxt = text;
+    let maxLength = 35;
+    if (shortTxt.length > maxLength) {
+        shortTxt = text.slice(0, maxLength) + "...";
+    }
+
+    return shortTxt;
+}
+%>
+<h1>To Do List</h1>
+<form action="/posts" method="POST">
+    <textarea id="text" name="post" placeholder="Write your post" rows="5" autofocus required></textarea><input type="submit" value="insert post"> 
+</form>
+    <% if(locals.todo && todo.length > 0) {%>
+    <div class="todo">
+        <form name="checked" method="post">
+        <h2 id="todoList"> To do</h2>
+        <% todo.forEach(element => { %>
+            <div class="checklist-item">
+                <input type="checkbox" id="<%= element.id %>" name="checkbox" class="checkbox" value="post-<%= element.id %>"  ">
+                <label for="post-<%= element.id %>"><a href="/posts/<%= element.id %>"><%= excrept(element.content) %></a></label> 
+                <a class="edit" href="/edit/<%= element.id %>">Edit</a>             
+                <a class="delete" href="/move/<%= element.id %>">Done</a>
+                <br>
+            </div>
+            <% }); %>
+        </form>
+    </div>
+    <% } %>
+
+    <% if(locals.done && done.length > 0) {%>
+    <div class="done">     
+        <form name="checked" method="post">
+        <h2 id="todoList">Done</h2>
+        <% done.forEach(element => { %>
+            <div class="checklist-item">
+                <input type="checkbox" id="<%= element.id %>" name="checkbox" class="checkbox" checked="true" value="post-<%= element.id %>"  ">
+                <label for="post-<%= element.id %>"><a href="/posts/<%= element.id %>"><%= excrept(element.content) %></a></label> 
+                <a class="edit" href="/undo/<%= element.id %>">Revert</a>             
+                <a class="delete" href="/delete/<%= element.id %>">Delete</a>
+                <br>
+            </div>
+            <% }); %>
+        </form>      
+    </div>
+    <% } %>
+
+
+<%- include('partials/footer.ejs') %>
