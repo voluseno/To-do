@@ -74,14 +74,6 @@ app.post('/posts', (req, res) => {
    res.redirect("/");
 });
 
-// app.post('/posts/:id', (req, res) => {
-//     const id = parseInt(req.params.id);
-//     const post = todoList.findIndex((todo) => todo.it === id);
-//    //console.log(post + ' checked');
-//     done.push(post)
-//     res.render('index.ejs', data);
-// });
-
 //PATCH a post when you just want to update one parameter
 app.post('/posts/:id', (req, res) => {
     console.log("PATCH");
