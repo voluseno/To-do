@@ -132,7 +132,6 @@ app.get ('/undo/:id', (req, res) => {
         todoList.push(moved[0]);
         console.log(todoList);
         res.redirect("/");
-        //res.sendStatus(200);
     } else {
         console.log("ERROR");
         res
